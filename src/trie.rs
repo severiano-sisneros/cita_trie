@@ -54,7 +54,7 @@ where
     D: DB,
     H: Hasher,
 {
-    root: Node,
+    pub root: Node,
     root_hash: Vec<u8>,
 
     db: Arc<D>,
