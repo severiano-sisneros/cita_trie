@@ -852,7 +852,7 @@ where
         }
     }
 
-    fn recover_from_db(&self, key: &[u8]) -> TrieResult<Node> {
+    pub fn recover_from_db(&self, key: &[u8]) -> TrieResult<Node> {
         match self.db.get(key).map_err(|e| TrieError::DB(e.to_string()))? {
             Some(value) => Ok(self.decode_node(&value)?),
             None => Ok(Node::Empty),
